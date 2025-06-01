@@ -15,8 +15,53 @@ Algorithm:
 4.	Exit the program.
  
 Program:
+```
+#include <stdio.h>
 
-//type your code here
+int main() {
+int n;
+
+printf("Enter an integer: ");
+if (scanf("%d", &n) != 1) {
+    printf("Invalid input\n");
+    return 1;
+}
+
+
+switch(n) {
+    case 5:
+        printf("seventy one\n");
+        break;
+    case 6:
+        printf("seventy two\n");
+        break;
+    case 13:
+        printf("seventy three\n");
+        break;
+    case 7:
+        printf("seventy four\n");
+        break;
+    case 8:
+        printf("seventy five\n");
+        break;
+    case 9:
+        printf("seventy six\n");
+        break;
+    case 10:
+        printf("seventy seven\n");
+        break;
+    case 11:
+        printf("seventy eight\n");
+        break;
+    case 12:
+        printf("seventy nine\n");
+        break;
+    default:
+        printf("greater than 13\n");
+}
+return 0;
+}
+```
 
 
 
@@ -24,8 +69,8 @@ Program:
 Output:
 
 
-//paste your output here
 
+![1](https://github.com/user-attachments/assets/418a4a2e-520e-441c-88e2-72c7e440623b)
 
 
 
@@ -47,15 +92,38 @@ Algorithm:
  
 Program:
 
-//type your code here
+```
+#include <stdio.h>
+#include <string.h>
+
+int main() {
+ char a[50]; int i, h, c;
+ printf("Enter a string containing digits: ");
+ scanf("%s", a);
+
+ for (h = 0; h < 10; h++) {
+     c = 0; 
+     for (i = 0; i < strlen(a); i++) {
+         if (a[i] == (h + '0')) {
+             c++;
+         }
+     }
+     printf("%d ", c);
+ }
+
+ printf("\n");
+ return 0;
+}
+
+```
 
 
 
 
 Output:
 
+![2](https://github.com/user-attachments/assets/d518ab48-2170-4b00-bbb5-7cd70dc6ad7a)
 
-//paste your output here
 
 
 
@@ -83,8 +151,55 @@ Free the memory allocated for each string in s Free the memory allocated for s
 7.	End
  
 Program:
+```
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 
-//type your code here
+void swap(char *x, char *y) { char temp = *x; *x = *y; *y = temp; }
+
+int cmpfunc(const void *a, const void b) { return ((char *)a - *(char *)b); }
+
+void reverse(char *s, int i, int j) { while (i < j) { swap(&s[i], &s[j]); i++; j--; } }
+
+int next_permutation(char *s, int len) { int i = len - 2; while (i >= 0 && s[i] >= s[i + 1]) i--; if (i < 0) return 0;
+
+int j = len - 1;
+while (s[j] <= s[i])
+    j--;
+
+swap(&s[i], &s[j]);
+reverse(s, i + 1, len - 1);
+return 1;
+}
+
+int main() { char *s; int len;
+
+// Step 3: Memory allocation
+s = (char *)malloc(100 * sizeof(char));
+if (s == NULL) {
+    printf("Memory allocation failed.\n");
+    return 1;
+}
+
+printf("Enter a string: ");
+scanf("%s", s);
+
+len = strlen(s);
+
+qsort(s, len, sizeof(char), cmpfunc);
+
+printf("%s\n", s);
+
+while (next_permutation(s, len)) {
+    printf("%s\n", s);
+}
+
+free(s);
+
+return 0;
+}
+```
 
 
 
@@ -94,6 +209,7 @@ Output:
 
 //paste your output here
 
+![3](https://github.com/user-attachments/assets/47d91ba9-b0e4-433e-bae7-25de8078ac1f)
 
 
 
@@ -117,7 +233,27 @@ Algorithm:
  
 Program:
 
-//type your code here
+```
+#include <stdio.h>
+int main(){
+    int n,k,x,mintb,minrl,t,b,r,l;
+    scanf("%d",&n);
+    k=2*n-1;
+    for(int i=0;i<k;i++)
+    {
+        for(int j=0;j<k;j++)
+        {
+            t=i,b=k-i-1,r=k-1-j,l=j;
+            mintb=(t<b)?t:b;
+            minrl=(r<l)?r:l;
+            x=n-((mintb<minrl)?mintb:minrl);
+            printf("%d ",x);
+        }
+        printf("\n");
+    }
+    return 0;
+}
+```
 
 
 
@@ -125,8 +261,8 @@ Program:
 Output:
 
 
-//paste your output here
 
+![4](https://github.com/user-attachments/assets/7ad3ca38-5fff-49a3-85b1-5b223f5b4756)
 
 
 
@@ -155,8 +291,20 @@ o	Call the square() function and display the result.
 5.	End.
 
 Program:
+```
+#include <stdio.h>
 
-//type your code here
+int square() {
+     int num;
+     printf("Enter a number: ");
+     scanf("%d", &num);
+     return num * num; }
+
+int main() {
+      int result = square(); printf("Square of the number is: %d\n", result);
+      return 0;
+}
+```
 
 
 
@@ -164,8 +312,8 @@ Program:
 Output:
 
 
-//paste your output here
 
+![5](https://github.com/user-attachments/assets/3a393ae8-c4ea-4f6d-9f5b-fe1845f3d671)
 
 
 
